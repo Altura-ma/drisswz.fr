@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio professionnel de Driss Watremez. Développement sur mesure, automatisation, IA et solutions SaaS." />
+    <meta name="theme-color" content="#070b14" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>Driss Watremez | Portfolio professionnel</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Accueil Driss Watremez">
+          <span class="brand-mark">DW</span>
+          <span>
+            <strong>Driss Watremez</strong>
+            <small>Portfolio professionnel</small>
+          </span>
+        </a>
+
+        <nav class="topnav" aria-label="Navigation principale">
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/cv/">CV</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero-track" aria-label="Présentation">
+          <div class="hero-sticky">
+            <div class="hero-copy reveal">
+              <p class="eyebrow">Développement web • IA • automatisation</p>
+              <h1>Site clair, rapide, crédible. Video background piloté au scroll.</h1>
+              <p class="lede">
+                Recréation du site drisswz.fr avec base propre, deploy Git rapide pour Hostinger,
+                et expérience visuelle qui reste fluide sur desktop comme mobile.
+              </p>
+
+              <div class="cta-row">
+                <a class="btn btn-primary" href="tel:+33774758514">Appeler</a>
+                <a class="btn btn-secondary" href="mailto:drisswtz@gmail.com">Email</a>
+                <a class="btn btn-ghost" href="https://www.linkedin.com/in/drisswatremez" target="_blank" rel="noreferrer">LinkedIn</a>
+              </div>
+
+              <ul class="stats">
+                <li><span>Focus</span><strong>IA & automation</strong></li>
+                <li><span>Livraison</span><strong>Git → Hostinger</strong></li>
+                <li><span>Style</span><strong>Sobre, moderne</strong></li>
+              </ul>
+            </div>
+
+            <div class="video-frame reveal" data-video-frame>
+              <video
+                class="hero-video"
+                data-hero-video
+                muted
+                playsinline
+                preload="metadata"
+                aria-hidden="true"
+              >
+                <source src="/video/drisswzsitevideo.mp4" type="video/mp4" />
+              </video>
+              <div class="video-overlay"></div>
+              <div class="video-badge">
+                <span>Scroll</span>
+                <strong>Video scrub fluide</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-grid" id="apropos">
+          <article class="panel reveal">
+            <p class="section-kicker">Ce que je livre</p>
+            <h2>Présence web nette. Zéro builder fragile.</h2>
+            <p>
+              Base statique moderne, pages légères, contenu éditable dans repo, et déploiement direct
+              depuis Git pour éviter verrouillage Hostinger Builder.
+            </p>
+          </article>
+
+          <article class="panel reveal">
+            <p class="section-kicker">Stack</p>
+            <h2>GSAP, Vite, HTML, CSS, JS.</h2>
+            <p>
+              ScrollTrigger pilote <code>video.currentTime</code> avec interpolation douce pour avancer
+              et reculer selon scroll utilisateur.
+            </p>
+          </article>
+        </section>
+
+        <section class="section-block" id="services">
+          <div class="section-head reveal">
+            <p class="section-kicker">Services</p>
+            <h2>3 axes. Pas de blabla.</h2>
+          </div>
+
+          <div class="card-grid">
+            <article class="card reveal">
+              <span>01</span>
+              <h3>Sites vitrines</h3>
+              <p>Landing, portfolio, pages de conversion, contenu propre, SEO de base.</p>
+            </article>
+            <article class="card reveal">
+              <span>02</span>
+              <h3>Automatisation</h3>
+              <p>Flux métier, formulaires, intégrations API, scripts, outils internes.</p>
+            </article>
+            <article class="card reveal">
+              <span>03</span>
+              <h3>IA utile</h3>
+              <p>Copilotage, assistants, génération de contenu et workflow assisté.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-block" id="contact">
+          <div class="section-head reveal">
+            <p class="section-kicker">Contact</p>
+            <h2>Prêt pour mise en ligne rapide.</h2>
+          </div>
+
+          <div class="contact-row">
+            <a class="contact-card reveal" href="tel:+33774758514">
+              <span>Téléphone</span>
+              <strong>+33 7 74 75 85 14</strong>
+            </a>
+            <a class="contact-card reveal" href="mailto:drisswtz@gmail.com">
+              <span>Email</span>
+              <strong>drisswtz@gmail.com</strong>
+            </a>
+            <a class="contact-card reveal" href="https://x.com/drisswz" target="_blank" rel="noreferrer">
+              <span>X / Twitter</span>
+              <strong>@drisswz</strong>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>drisswz.fr recréé en static site. Deploy Git prêt Hostinger.</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
