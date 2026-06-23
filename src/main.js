@@ -27,42 +27,47 @@ revealItems.forEach((item) => {
 
 if (video && heroTrack && heroStage) {
   let duration = 0;
-  let targetTime = 0;
   let ready = false;
+  let seekTo = null;
+  let scrollTrigger = null;
 
   const clamp = gsap.utils.clamp(0, 1);
 
-  const syncTime = () => {
-    if (!ready || !duration || Number.isNaN(video.currentTime)) return;
-    const delta = targetTime - video.currentTime;
-    if (Math.abs(delta) > 0.0015) {
-      video.currentTime += delta * 0.14;
-    }
+  const syncTime = (progress) => {
+    if (!ready || !duration || !seekTo) return;
+    const maxSeek = Math.max(duration - 0.08, 0);
+    seekTo(clamp(progress) * maxSeek);
   };
 
   video.addEventListener('loadedmetadata', () => {
     duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0;
     ready = duration > 0;
     video.pause();
-    targetTime = 0;
     video.currentTime = 0.001;
+    seekTo = gsap.quickTo(video, 'currentTime', {
+      duration: 0.35,
+      ease: 'power3.out',
+    });
 
-    ScrollTrigger.create({
+    scrollTrigger = ScrollTrigger.create({
       trigger: heroTrack,
       start: 'top top',
-      end: () => `+=${Math.max(window.innerHeight * 2.2, 1800)}`,
-      scrub: 1.1,
+      end: () => `+=${Math.max(window.innerHeight * 2.8, 2200)}`,
+      scrub: 0.85,
       pin: heroStage,
       pinSpacing: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       onUpdate: (self) => {
-        targetTime = clamp(self.progress) * duration;
+        syncTime(self.progress);
+      },
+      onRefresh: (self) => {
+        syncTime(self.progress);
       },
     });
 
-    gsap.ticker.add(syncTime);
-    gsap.ticker.fps(60);
+    syncTime(scrollTrigger.progress);
+    ScrollTrigger.refresh();
   });
 
   video.addEventListener('error', () => {
