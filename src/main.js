@@ -55,8 +55,8 @@ if (video && heroTrack && heroStage) {
     scrollTrigger = ScrollTrigger.create({
       trigger: heroTrack,
       start: 'top top',
-      end: () => `+=${Math.max(window.innerHeight * 2.8, 2200)}`,
-      scrub: 0.45,
+      end: () => `+=${Math.max(window.innerHeight * 1.9, 1500)}`,
+      scrub: 0.15,
       pin: heroStage,
       pinSpacing: true,
       anticipatePin: 1,
