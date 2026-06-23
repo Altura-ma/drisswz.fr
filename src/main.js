@@ -28,32 +28,35 @@ revealItems.forEach((item) => {
 if (video && heroTrack && heroStage) {
   let duration = 0;
   let ready = false;
-  let seekTo = null;
   let scrollTrigger = null;
 
   const clamp = gsap.utils.clamp(0, 1);
 
   const syncTime = (progress) => {
-    if (!ready || !duration || !seekTo) return;
+    if (!ready || !duration) return;
     const maxSeek = Math.max(duration - 0.08, 0);
-    seekTo(clamp(progress) * maxSeek);
+    const nextTime = clamp(progress) * maxSeek;
+
+    if (typeof video.fastSeek === 'function' && Math.abs(nextTime - video.currentTime) > 0.16) {
+      video.fastSeek(nextTime);
+      return;
+    }
+
+    video.currentTime = nextTime;
   };
 
+  video.preload = 'auto';
   video.addEventListener('loadedmetadata', () => {
     duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0;
     ready = duration > 0;
     video.pause();
     video.currentTime = 0.001;
-    seekTo = gsap.quickTo(video, 'currentTime', {
-      duration: 0.35,
-      ease: 'power3.out',
-    });
 
     scrollTrigger = ScrollTrigger.create({
       trigger: heroTrack,
       start: 'top top',
       end: () => `+=${Math.max(window.innerHeight * 2.8, 2200)}`,
-      scrub: 0.85,
+      scrub: 0.45,
       pin: heroStage,
       pinSpacing: true,
       anticipatePin: 1,
