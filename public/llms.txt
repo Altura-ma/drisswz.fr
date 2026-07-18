@@ -1,0 +1,16 @@
+# Driss WZ
+
+> Portfolio de Driss WZ, profil operationnel entre automatisation, produit, IA et execution terrain.
+
+drisswz.fr presente profil, portfolio, parcours et projets de Driss WZ.
+
+## Pages principales
+
+- Accueil: https://drisswz.fr/
+- CV: https://drisswz.fr/cv
+- Portfolio: https://drisswz.fr/portfolio
+
+## Indexation
+
+- Sitemap: https://drisswz.fr/sitemap.xml
+- Robots: https://drisswz.fr/robots.txt
