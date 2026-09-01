@@ -1,6 +1,0 @@
-# Driss WZ
-
-Alias court. Format recommande: https://drisswz.fr/llms.txt
-
-Sitemap: https://drisswz.fr/sitemap.xml
-Robots: https://drisswz.fr/robots.txt

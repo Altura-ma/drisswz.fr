@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page introuvable | Driss Watremez</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #070b14;
+        --panel: rgba(12, 17, 30, 0.72);
+        --text: #eef3ff;
+        --muted: #a9b3ca;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #84d6ff;
+        --accent-2: #8f7bff;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #eef1f7;
+          --panel: rgba(255, 255, 255, 0.85);
+          --text: #0b1220;
+          --muted: #5b6478;
+          --line: rgba(10, 18, 32, 0.1);
+          --accent: #1f6fa8;
+          --accent-2: #5b4bb8;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        text-align: center;
+        padding: 24px;
+        font-family: 'Inter', system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .mark {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, rgba(132, 214, 255, 0.24), rgba(143, 123, 255, 0.24));
+        border: 1px solid var(--line);
+      }
+      .mark svg { width: 28px; height: 28px; color: var(--text); }
+      p.kicker {
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      h1 {
+        font-family: 'Outfit', 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        letter-spacing: -0.04em;
+        margin: 0;
+      }
+      p.lede {
+        margin: 0;
+        max-width: 46ch;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      a.btn {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 999px;
+        color: #04101c;
+        background: linear-gradient(135deg, #8ad8ff, #a69cff);
+        font-weight: 600;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mark">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M10 5 L5 12 L10 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 5 H13 C17 5 19.5 8 19.5 12 C19.5 16 17 19 13 19 H10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p class="kicker">Erreur 404</p>
+    <h1>Cette page n'existe pas.</h1>
+    <p class="lede">Le lien est cassé ou la page a été déplacée. Retour à l'accueil pour continuer.</p>
+    <a class="btn" href="/">Retour à l'accueil</a>
+  </body>
+</html>
