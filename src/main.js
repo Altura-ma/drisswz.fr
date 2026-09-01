@@ -4,6 +4,47 @@ import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Cookie consent (Google Consent Mode v2). gtag() is defined inline in
+// <head> with analytics_storage denied by default; this only ever grants,
+// never assumes.
+const CONSENT_KEY = 'dw-consent';
+
+function initConsentBanner() {
+  const stored = localStorage.getItem(CONSENT_KEY);
+
+  if (stored === 'granted' && typeof window.gtag === 'function') {
+    window.gtag('consent', 'update', { analytics_storage: 'granted' });
+  }
+  if (stored) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'consent-banner';
+  banner.setAttribute('role', 'region');
+  banner.setAttribute('aria-label', 'Cookies');
+  banner.innerHTML = `
+    <p>Ce site utilise des cookies de mesure d'audience (Google Analytics) pour comprendre comment il est utilisé.</p>
+    <div class="consent-banner__actions">
+      <button type="button" class="btn btn-secondary" data-consent="reject">Refuser</button>
+      <button type="button" class="btn btn-primary" data-consent="accept">Accepter</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  banner.addEventListener('click', (event) => {
+    const choice = event.target.dataset.consent;
+    if (!choice) return;
+
+    const granted = choice === 'accept';
+    localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied');
+    if (granted && typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+    banner.remove();
+  });
+}
+
+initConsentBanner();
+
 const lenis = new Lenis();
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => {
